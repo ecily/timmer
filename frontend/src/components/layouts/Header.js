@@ -36,7 +36,7 @@ const Header = () => {
 
                 <div className="col-12 col-md-2 mt-4 mt-md-0 text-center">
                     <Link to="/cart" style={{ textDecoration: 'none' }} >
-                        <span id="cart" className="ml-3">Cart</span>
+                        <span id="cart" className="ml-3">Warenkorb</span>
                         <span className="ml-1" id="cart_count">{cartItems.length}</span>
                     </Link>
 
@@ -59,13 +59,13 @@ const Header = () => {
                                 {user && user.role === 'admin' && (
                                     <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
                                 )}
-                                <Link className="dropdown-item" to="/orders/me">Orders</Link>
-                                <Link className="dropdown-item" to="/me">Profile</Link>
-                                <Link className='dropdown-item text-danger' to='/' onClick={logoutHandler}>Logout</Link>
+                                <Link className="dropdown-item" to="/orders/me">Aufträge</Link>
+                                <Link className="dropdown-item" to="/me">Profil</Link>
+                                <Link className='dropdown-item text-danger' to='/' onClick={logoutHandler}>Ausloggen</Link>
                             </div>
                         </div>
 
-                    ) : !loading && <Link to="/login" className="btn ml-4" id="login_btn">Login</Link>}
+                    ) : !loading && <Link to="/login" className="btn ml-4" id="login_btn">Einloggen</Link>}
 
 
                 </div>

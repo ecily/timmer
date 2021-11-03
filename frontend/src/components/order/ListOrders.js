@@ -73,7 +73,7 @@ const ListOrders = () => {
     return (
         <Fragment>
             <MetaData title={'My Orders'}/>
-            <h1 className='my-5'>My Orders</h1>
+            <h1 className='my-5'>Meine Aufträge</h1>
             {loading ? <Loader /> : (
                 <MDBDataTable
                     data={setOrders()}

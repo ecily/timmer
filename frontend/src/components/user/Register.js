@@ -76,7 +76,7 @@ const Register = ({ history }) => {
                         <h1 className="mb-3">Register</h1>
 
                         <div className="form-group">
-                            <label htmlFor="name_field">Name</label>
+                            <label htmlFor="name_field">Vor- und Familienname</label>
                             <input
                                 type="name"
                                 id="name_field"
@@ -88,7 +88,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Email</label>
+                            <label htmlFor="email_field">Mailadresse</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -100,7 +100,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="password_field">Password</label>
+                            <label htmlFor="password_field">Passwort</label>
                             <input
                                 type="password"
                                 id="password_field"
@@ -112,7 +112,7 @@ const Register = ({ history }) => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <label htmlFor='avatar_upload'>Avatar Bild</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -134,7 +134,7 @@ const Register = ({ history }) => {
                                         onChange={onChange}
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
-                                        Choose Avatar
+                                        Wählen Sie Ihren Avatar
                                     </label>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@ const Register = ({ history }) => {
                             className="btn btn-block py-3"
                             disabled={loading ? true : false}
                         >
-                            REGISTER
+                            Anmeldung
                         </button>
                     </form>
                 </div>

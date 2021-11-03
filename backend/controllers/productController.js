@@ -84,7 +84,7 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-        return next(new ErrorHandler('Product not found', 404));
+        return next(new ErrorHandler('Produkt nicht gefunden.', 404));
     }
 
 
@@ -101,7 +101,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let product = await Product.findById(req.params.id);
 
     if (!product) {
-        return next(new ErrorHandler('Product not found', 404));
+        return next(new ErrorHandler('Produkt nicht gefunden.', 404));
     }
 
     let images = []
@@ -156,7 +156,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-        return next(new ErrorHandler('Product not found', 404));
+        return next(new ErrorHandler('Produkt nicht gefunden.', 404));
     }
 
     // Deleting images associated with the product
@@ -168,7 +168,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        message: 'Product is deleted.'
+        message: 'Produkt gelöscht.'
     })
 
 })

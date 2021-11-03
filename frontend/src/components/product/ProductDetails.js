@@ -38,7 +38,7 @@ const ProductDetails = ({ match }) => {
         }
 
         if(success) {
-            alert.success('Review successfully posted')
+            alert.success('Danke für Ihre Bewertung')
             dispatch({ type: NEW_REVIEW_RESET})
         }
 
@@ -46,7 +46,7 @@ const ProductDetails = ({ match }) => {
 
     const addToCart = () => {
         dispatch(addItemToCart(match.params.id, quantity))
-        alert.success('Added to cart')
+        alert.success('Dem Warenkorb zugefügt')
     }
 
     const increaseQty = () => {
@@ -126,14 +126,14 @@ const ProductDetails = ({ match }) => {
     
             <div className="col-12 col-lg-5 mt-5">
                 <h3>{product.name}</h3>
-                <p id="product_id">Product # {product._id}</p>
+                <p id="product_id">Produkt # {product._id}</p>
     
                 <hr/>
     
                 <div className="rating-outer">
                     <div className="rating-inner" style={{ width: `${(product.ratings / 5) * 100}%` }}></div>
                 </div>
-                <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
+                <span id="no_of_reviews">({product.numOfReviews} Bewertungen)</span>
     
                 <hr/>
     
@@ -146,7 +146,7 @@ const ProductDetails = ({ match }) => {
                     <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                 </div>
                  <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4"
-                 disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button>
+                 disabled={product.stock === 0} onClick={addToCart}>Zum Warenkorb hinzufügen</button>
     
                 <hr/>
     
@@ -156,19 +156,19 @@ const ProductDetails = ({ match }) => {
     
                 <hr/>
     
-                <h4 className="mt-2">Description:</h4>
+                <h4 className="mt-2">Beschreibung:</h4>
                 <p>{product.description}</p>
                 <hr/>
-                <p id="product_seller mb-3">Sold by: <strong>{product.seller}</strong></p>
+                <p id="product_seller mb-3">Verkäufer: <strong>{product.seller}</strong></p>
                 
                 {user ?   <button id="review_btn" type="button" 
                 className="btn btn-primary mt-4" 
                 data-toggle="modal" 
                 data-target="#ratingModal"
                 onClick={setUserRatings}>
-                            Submit Your Review
+                            Bewertung absenden
                 </button> :
-                <div className='alert-danger mt-5' type='alert'>Login to post reviews</div>
+                <div className='alert-danger mt-5' type='alert'>Bitte melden Sie sich an, um Bewertungen abzugeben</div>
                 }
               
                 
@@ -179,7 +179,7 @@ const ProductDetails = ({ match }) => {
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="ratingModalLabel">Submit Review</h5>
+                                        <h5 className="modal-title" id="ratingModalLabel">Bewertung abgeben</h5>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -203,7 +203,7 @@ const ProductDetails = ({ match }) => {
     
                                         <button className="btn my-3 float-right review-btn px-4 text-white" 
                                         onClick={reviewHandler}
-                                        data-dismiss="modal" aria-label="Close">Submit</button>
+                                        data-dismiss="modal" aria-label="Close">Absenden</button>
                                     </div>
                                 </div>
                             </div>

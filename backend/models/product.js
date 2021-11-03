@@ -51,17 +51,17 @@ const productSchema = new mongoose.Schema({
                 'Outdoor',
                 'Home'
             ],
-            message: 'Please select a category for your product'
+            message: 'Bitte eine Kategorie für das Produkt auswählen.'
         }
     },
     seller: {
         type: String,
-        required: [true, 'Please enter a seller']
+        required: [true, 'Bitte geben Sie den Verkäufer ein.']
     },
     stock: {
         type: Number,
-        required: [true, 'Please enter the product stock'],
-        maxLengt: [5, 'Product Stock exeed 5 digits'],
+        required: [true, 'Bitte geben Sie die Lager-Stückzahl ein.'],
+        maxLengt: [5, 'Das ist vielleicht ein bissl zu viel! :) Bitte max. 5 Stellen eingeben.'],
         default: 0
     },
     numOfReviews: {

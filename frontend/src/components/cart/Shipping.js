@@ -38,9 +38,9 @@ const Shipping = ({ history }) => {
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-4">Shipping Info</h1>
+                        <h1 className="mb-4">Versandinformation</h1>
                         <div className="form-group">
-                            <label htmlFor="address_field">Address</label>
+                            <label htmlFor="address_field">Adresse</label>
                             <input
                                 type="text"
                                 id="address_field"
@@ -52,7 +52,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="city_field">City</label>
+                            <label htmlFor="city_field">Ort</label>
                             <input
                                 type="text"
                                 id="city_field"
@@ -64,7 +64,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone_field">Phone No</label>
+                            <label htmlFor="phone_field">Telefon</label>
                             <input
                                 type="phone"
                                 id="phone_field"
@@ -76,7 +76,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="postal_code_field">Postal Code</label>
+                            <label htmlFor="postal_code_field">PLZ</label>
                             <input
                                 type="number"
                                 id="postal_code_field"
@@ -88,7 +88,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="country_field">Country</label>
+                            <label htmlFor="country_field">Land</label>
                             <select
                                 id="country_field"
                                 className="form-control"
@@ -111,7 +111,7 @@ const Shipping = ({ history }) => {
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            CONTINUE
+                            Weiter
                             </button>
                     </form>
                 </div>

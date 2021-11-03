@@ -66,28 +66,28 @@ const ProcessOrder = ({ match }) => {
                             <div className="row d-flex justify-content-around">
                                 <div className="col-12 col-lg-7 order-details">
 
-                                    <h2 className="my-5">Order # {order._id}</h2>
+                                    <h2 className="my-5">Auftrag Nr. {order._id}</h2>
 
-                                    <h4 className="mb-4">Shipping Info</h4>
+                                    <h4 className="mb-4">Versandinfo</h4>
                                     <p><b>Name:</b> {user && user.name}</p>
-                                    <p><b>Phone:</b> {shippingInfo && shippingInfo.phoneNo}</p>
-                                    <p className="mb-4"><b>Address:</b>{shippingDetails}</p>
-                                    <p><b>Amount:</b> ${totalPrice}</p>
+                                    <p><b>Tel:</b> {shippingInfo && shippingInfo.phoneNo}</p>
+                                    <p className="mb-4"><b>Adresse:</b>{shippingDetails}</p>
+                                    <p><b>Gesamtbetrag:</b> ${totalPrice}</p>
 
                                     <hr />
 
-                                    <h4 className="my-4">Payment</h4>
+                                    <h4 className="my-4">Zahlung:</h4>
                                     <p className={isPaid ? "greenColor" : "redColor"}><b>{isPaid ? "PAID" : "NOT PAID"}</b></p>
 
                                     <h4 className="my-4">Stripe ID</h4>
                                     <p><b>{paymentInfo && paymentInfo.id}</b></p>
 
-                                    <h4 className="my-4">Order Status:</h4>
+                                    <h4 className="my-4">Auftrag Status:</h4>
                                     <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor"} ><b>{orderStatus}</b></p>
 
 
 
-                                    <h4 className="my-4">Order Items:</h4>
+                                    <h4 className="my-4">Auftragspositionen:</h4>
 
                                     <hr />
                                     <div className="cart-item my-1">
@@ -107,7 +107,7 @@ const ProcessOrder = ({ match }) => {
                                                 </div>
 
                                                 <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                                                    <p>{item.quantity} Piece(s)</p>
+                                                    <p>{item.quantity} Stückzahl</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -125,9 +125,9 @@ const ProcessOrder = ({ match }) => {
                                             value={status}
                                             onChange={(e) => setStatus(e.target.value)}
                                         >
-                                            <option value="Processing">Processing</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Delivered">Delivered</option>
+                                            <option value="Processing">In Bearbeitung</option>
+                                            <option value="Shipped">Versand</option>
+                                            <option value="Delivered">Abgeschlossen</option>
                                         </select>
                                     </div>
 

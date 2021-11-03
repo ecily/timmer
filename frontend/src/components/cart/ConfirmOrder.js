@@ -14,9 +14,10 @@ const ConfirmOrder = ({ history }) => {
     // Calculate Order Prices
     const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
     
-    //Ab 200 EUR keine Versandkosten
-    const shippingPrice = itemsPrice > 200 ? 0 : 25
-    const taxPrice = Number((0.05 * itemsPrice).toFixed(2))
+    //Ab 50 EUR keine Versandkosten, darunter 10
+    //Steuer 20%
+    const shippingPrice = itemsPrice > 50 ? 0 : 10
+    const taxPrice = Number((0.2 * itemsPrice).toFixed(2))
     const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
 
     const processToPayment = () => {
@@ -34,20 +35,20 @@ const ConfirmOrder = ({ history }) => {
     return (
         <Fragment>
 
-            <MetaData title={'Confirm Order'} />
+            <MetaData title={'Auftragsbestätigung'} />
 
             <CheckoutSteps shipping confirmOrder />
 
             <div className="row d-flex justify-content-between">
                 <div className="col-12 col-lg-8 mt-5 order-confirm">
 
-                    <h4 className="mb-3">Shipping Info</h4>
+                    <h4 className="mb-3">Versandinformation</h4>
                     <p><b>Name:</b> {user && user.name}</p>
-                    <p><b>Phone:</b> {shippingInfo.phoneNo}</p>
-                    <p className="mb-4"><b>Address:</b> {`${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
+                    <p><b>Tel:</b> {shippingInfo.phoneNo}</p>
+                    <p className="mb-4"><b>Adresse:</b> {`${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
 
                     <hr />
-                    <h4 className="mt-4">Your Cart Items:</h4>
+                    <h4 className="mt-4">Ihre Produkte:</h4>
 
                     {cartItems.map(item => (
                         <Fragment>
@@ -64,7 +65,7 @@ const ConfirmOrder = ({ history }) => {
 
 
                                     <div className="col-4 col-lg-4 mt-4 mt-lg-0">
-                                        <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
+                                        <p>{item.quantity} x € {item.price} = <b>€ {(item.quantity * item.price).toFixed(2)}</b></p>
                                     </div>
 
                                 </div>
@@ -79,18 +80,18 @@ const ConfirmOrder = ({ history }) => {
 
                 <div className="col-12 col-lg-3 my-4">
                     <div id="order_summary">
-                        <h4>Order Summary</h4>
+                        <h4>Zusammenfassung</h4>
                         <hr />
-                        <p>Subtotal:  <span className="order-summary-values">${itemsPrice}</span></p>
-                        <p>Shipping: <span className="order-summary-values">${shippingPrice}</span></p>
-                        <p>Tax:  <span className="order-summary-values">${taxPrice}</span></p>
+                        <p>Produkte:  <span className="order-summary-values">€ {itemsPrice}</span></p>
+                        <p>Versand: <span className="order-summary-values">€ {shippingPrice}</span></p>
+                        <p>Mwst (20%):  <span className="order-summary-values">€ {taxPrice}</span></p>
 
                         <hr />
 
-                        <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
+                        <p>Gesamt: <span className="order-summary-values">€{totalPrice}</span></p>
 
                         <hr />
-                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Proceed to Payment</button>
+                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Weiter zur Bezahlung</button>
                     </div>
                 </div>
 

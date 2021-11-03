@@ -7,19 +7,19 @@ const crypto = require('crypto')
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please enter your name'],
-        maxLength: [30, 'Your name cannot exceed 30 characters']
+        required: [true, 'Bitte geben Sie Ihren Namen ein'],
+        maxLength: [30, 'Bitte nicht mehr als 30 Zeichen eingeben.']
     },
     email: {
         type: String,
-        required: [true, 'Please enter your email'],
+        required: [true, 'Bitte geben Sie Ihre Mailadresse ein.'],
         unique: true,
-        validate: [validator.isEmail, 'Please enter valid email address']
+        validate: [validator.isEmail, 'Bitte geben Sie eine gültige Mailadresse ein.']
     },
     password: {
         type: String,
-        required: [true, 'Please enter your password'],
-        minlength: [6, 'Your password must be longer than 6 characters'],
+        required: [true, 'Bitte geben Sie Ihr Passwort ein.'],
+        minlength: [6, 'Das Passwort muss bitte länger als 6 Zeichen/Zahlen sein.'],
         select: false
     },
     avatar: {

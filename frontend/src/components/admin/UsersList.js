@@ -94,7 +94,7 @@ const UsersList = ({ history }) => {
 
     return (
         <Fragment>
-            <MetaData title={'All Users'} />
+            <MetaData title={'Alle Kunden'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -102,7 +102,7 @@ const UsersList = ({ history }) => {
 
                 <div className="col-12 col-md-10">
                     <Fragment>
-                        <h1 className="my-5">All Users</h1>
+                        <h1 className="my-5">Alle Kunden</h1>
 
                         {loading ? <Loader /> : (
                             <MDBDataTable

@@ -38,7 +38,7 @@ exports.getSingleOrder = catchAsyncErrors(async(req, res, next) => {
     const order = await Order.findById(req.params.id).populate('user', 'name email')
 
     if(!order) {
-        return next(new ErrorHandler('No order found', 404))
+        return next(new ErrorHandler('Keine Aufträge gefunden.', 404))
     }
 
     res.status(200).json({
@@ -52,7 +52,7 @@ exports.myOrders = catchAsyncErrors(async(req, res, next) => {
     const orders = await Order.find({ user: req.user.id})
 
     if(!order) {
-        return next(new ErrorHandler('No order found', 404))
+        return next(new ErrorHandler('Kein Auftrag gefunden.', 404))
     }
 
     res.status(200).json({
@@ -84,7 +84,7 @@ exports.updateOrder = catchAsyncErrors(async(req, res, next) => {
 
     if(order.orderStatus === 'Delivered') {
         
-        return next(new ErrorHandler('This order is already delivered', 404))
+        return next(new ErrorHandler('Dieser Auftrag ist bereits geliefert.', 404))
     }
     
     order.orderItems.forEach(async item =>{
@@ -116,7 +116,7 @@ exports.deleteOrder = catchAsyncErrors(async(req, res, next) => {
     const order = await Order.findById(req.params.id)
 
     if(!order) {
-        return next(new ErrorHandler('No order found', 404))
+        return next(new ErrorHandler('Kein Auftrag gefunden.', 404))
     }
 
     await order.remove()

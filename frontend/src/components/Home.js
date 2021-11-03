@@ -65,7 +65,7 @@ const Home = ({ match }) => {
                 <Fragment>
                 <MetaData title={'ecily/Webdevelopment showcase'}/>
 
-                <h1 id="products_heading">Latest Products</h1>
+                <h1 id="products_heading">Unsere Produkte</h1>
                 <section id="products" className="container mt-5">
                     <div className="row">
 
@@ -76,10 +76,10 @@ const Home = ({ match }) => {
                                         <Range
                                             marks={{
                                                 1: `EUR 1`,
-                                                1000: `EUR 1000`
+                                                1000: `EUR 200`
                                             }}
                                             min={1}
-                                            max={1000}
+                                            max={200}
                                             defaultValue={[1, 1000]}
                                             tipFormatter={value => `${value}`}
                                             tipProps={{
@@ -114,7 +114,7 @@ const Home = ({ match }) => {
                                         <hr className='my-3' />
                                         <div className='mt-5'>
                                             <h4 className='mb-3'>
-                                                Ratings
+                                                Bewertungen
                                             </h4>
                                             <ul className='pl-0'>
                                                 {[5,4,3,2,1].map(star => (

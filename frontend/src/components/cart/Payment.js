@@ -124,9 +124,9 @@ const Payment = ({ history }) => {
            <div className="row wrapper">
            <div className="col-10 col-lg-5">
             <form className="shadow-lg" onSubmit={submitHandler}>
-                <h1 className="mb-4">Card Info</h1>
+                <h1 className="mb-4">Kartendaten</h1>
                 <div className="form-group">
-                  <label htmlFor="card_num_field">Card Number</label>
+                  <label htmlFor="card_num_field">Nummer auf der Kreditkarte</label>
                   <CardNumberElement
                     type="text"
                     id="card_num_field"
@@ -137,7 +137,7 @@ const Payment = ({ history }) => {
                 </div>
 				
 				<div className="form-group">
-                  <label htmlFor="card_exp_field">Card Expiry</label>
+                  <label htmlFor="card_exp_field">Ablaufdatum</label>
                   <CardExpiryElement
                     type="text"
                     id="card_exp_field"
@@ -147,7 +147,7 @@ const Payment = ({ history }) => {
                 </div>
 				
 				<div className="form-group">
-                  <label htmlFor="card_cvc_field">Card CVC</label>
+                  <label htmlFor="card_cvc_field">CVC Prüfnummer</label>
                   <CardCvcElement
                     type="text"
                     id="card_cvc_field"
@@ -162,7 +162,7 @@ const Payment = ({ history }) => {
                   type="submit"
                   className="btn btn-block py-3"
                 >
-                  Pay {`- ${orderInfo && orderInfo.totalPrice}`}
+                  Jetzt bezahlen {`- ${orderInfo && orderInfo.totalPrice}`}
                 </button>
     
               </form>

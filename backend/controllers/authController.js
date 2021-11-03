@@ -9,7 +9,7 @@ const cloudinary = require('cloudinary')
 // Register user => /api/v1/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
-    console.log('entry point auth controller')
+    //console.log('entry point auth controller')
 
     const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
         folder: "avatars",
@@ -36,15 +36,15 @@ exports.loginUser = catchAsyncErrors( async(req, res, next) => {
     const { email, password } = req.body
     
     if(!email || !password) {
-        return next(new ErrorHandler('Please enter email & password', 400))
+        return next(new ErrorHandler('Bitte geben Sie Ihre Mailadresse und/oder Ihr Passwort ein.', 400))
     }
     const user = await User.findOne({ email }).select('+password')
     if(!user) {
-        return next(new ErrorHandler('Invalid email or password', 401))
+        return next(new ErrorHandler('Hoppala! Falsche Mailadresse oder falsches Passwort.', 401))
     }
     const isPasswordMatched = await user.comparePassword(password)
     if(!isPasswordMatched) {
-        return next(new ErrorHandler('Invalid email or password', 401))
+        return next(new ErrorHandler('Hoppala! Falsche Mailadresse oder falsches Passwort.', 401))
     }
     sendToken(user, 200, res)
 })
@@ -56,7 +56,7 @@ exports.updatePassword = catchAsyncErrors( async(req, res, next) => {
     //check previous password
     const isMatched = await user.comparePassword(req.body.oldPassword)
     if(!isMatched) {
-        return next(new ErrorHandler('You old password is not correct', 400))
+        return next(new ErrorHandler('Ihr altes Passwort stimmt leider nicht.', 400))
     }
     user.password = req.body.password
     await user.save()
@@ -109,7 +109,7 @@ exports.updateProfile = catchAsyncErrors(async(req, res, next) => {
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email })
     if(!user) {
-        return next(new ErrorHandler('User not found', 404))
+        return next(new ErrorHandler('Benutzer leider nicht gefunden.', 404))
     }
     // Get reset token
     const resetToken = user.getResetPasswordToken()
@@ -121,19 +121,19 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     // production:
     const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`
 
-    const message = `Your password reset token is as follows:\n\n${resetUrl}\n\nIf you have not reqested this, then pls. ignore`
+    const message = `Ihr Link zur Passwortänderung ist:\n\n${resetUrl}\n\nSollten Sie keine Passwortänderung beantragt haben, kein Problem - dann bitte einfach ignorieren!`
 
     try {
 
         await sendEmail({
             email: user.email,
-            subject: 'ShopIt Password recovery',
+            subject: 'Ihre Anfrage zur Passwortänderung.',
             message
         })
 
         res.status(200).json({
             success: true,
-            message: `Email sent to ${user.email}`
+            message: `Wir haben Ihnen ein Mail gesendet. ${user.email}`
         })
 
     } catch(error) {
@@ -158,11 +158,11 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     })
 
     if(!user) {
-        return next(new ErrorHandler('Password reset token invalid or expired', 400))
+        return next(new ErrorHandler('Der Passworttoken ist leider falsch oder veraltet.', 400))
     }
 
     if(req.body.password !== req.body.confirmPassword) {
-        return next(new ErrorHandler('Passwords do not match', 400))
+        return next(new ErrorHandler('Die Passwörter stimmen leider nicht überein.', 400))
     }
 
     //Set new password
@@ -193,7 +193,7 @@ exports.logout = catchAsyncErrors(async(req, res,next) => {
     })
     res.status(200).json({
         success: true,
-        message: 'Logged out'
+        message: 'Erfolgreich ausgeloggt. Auf Wiedersehen!'
     })
 })
 
@@ -212,7 +212,7 @@ exports.getUserDetails = catchAsyncErrors(async(req, res, next) =>{
     const user = await User.findById(req.params.id)
 
     if(!user) {
-        return next(new ErrorHandler(`User with ID ${req.params.id} has not been found.`))
+        return next(new ErrorHandler(`Benutzer ${req.params.id} wurde leider nicht gefunden.`))
     }
     res.status(200).json({
         success: true,
@@ -240,7 +240,7 @@ exports.deleteUser = catchAsyncErrors(async(req, res, next) =>{
     const user = await User.findById(req.params.id)
 
     if(!user) {
-        return next(new ErrorHandler(`User with ID ${req.params.id} has not been found.`))
+        return next(new ErrorHandler(`Benutzer ${req.params.id} wurde leider nicht gefunden.`))
     }
 
      // Remove avatar from cloudinary

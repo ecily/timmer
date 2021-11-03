@@ -77,10 +77,10 @@ const UpdateProfile = ({ history }) => {
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="mt-2 mb-5">Update Profile</h1>
+                        <h1 className="mt-2 mb-5">Profil aktualisieren</h1>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Name</label>
+                            <label htmlFor="email_field">Vor- und Familienname</label>
                             <input 
 								type="name" 
 								id="name_field" 
@@ -92,7 +92,7 @@ const UpdateProfile = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Email</label>
+                            <label htmlFor="email_field">Mailadresse</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -104,7 +104,7 @@ const UpdateProfile = ({ history }) => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <label htmlFor='avatar_upload'>Avatar Bild</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -125,7 +125,7 @@ const UpdateProfile = ({ history }) => {
                                         onChange={onChange}
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
-                                        Choose Avatar
+                                        Wählen Sie Ihren Avatar
                                 </label>
                                 </div>
                             </div>

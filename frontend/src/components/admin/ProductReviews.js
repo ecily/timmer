@@ -116,7 +116,7 @@ const ProductReviews = () => {
                             <div className="col-5">
                                 <form onSubmit={submitHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="productId_field">Enter Product ID</label>
+                                        <label htmlFor="productId_field">Bitte geben Sie die Produkt ID ein</label>
                                         <input
                                             type="text"
                                             id="productId_field"
@@ -147,7 +147,7 @@ const ProductReviews = () => {
                                 hover
                             />
                         ) : (
-                                <p className="mt-5 text-center">No Reviews.</p>
+                                <p className="mt-5 text-center">Keine Reviews vorhanden.</p>
                             )}
 
 

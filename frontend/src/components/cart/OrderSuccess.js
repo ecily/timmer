@@ -6,13 +6,13 @@ const OrderSuccess = () => {
     return (
         <Fragment>
 
-            <MetaData title={'Order Success'} />
+            <MetaData title={'Erfolg'} />
 
             <div className="row justify-content-center">
                 <div className="col-6 mt-5 text-center">
-                    <img className="my-5 img-fluid d-block mx-auto" src="/images/order_success.png" alt="Order Success" width="200" height="200" />
-                    <h2>Thank you! Your Order has been placed successfully.</h2>
-                    <Link to="/orders/me">Go to Orders</Link>
+                    <img className="my-5 img-fluid d-block mx-auto" src="/images/santa.jpg" alt="Order Success" width="200" height="200" />
+                    <h2>Dankeschön! Ihr Auftrag wird jetzt bearbeitet! Frohe Weihnachten!</h2>
+                    <Link to="/orders/me">Meine Aufträge</Link>
                 </div>
             </div>
 

@@ -50,7 +50,7 @@ const NewProduct = ({ history }) => {
 
         if(success) {
             history.push('/admin/products')
-            alert.success('Product created successfully')
+            alert.success('Produkt erfolgreich angelegt.')
             dispatch({ type: NEW_PRODUCT_RESET })
         }
     }, [dispatch, alert, error, success, history])
@@ -96,7 +96,7 @@ const NewProduct = ({ history }) => {
 
     return (
         <Fragment>
-        <MetaData title={'New Product'} />
+        <MetaData title={'Neues Produkt anlegen'} />
         <div className="row">
             <div className="col-12 col-md-2">
                 <Sidebar />
@@ -106,10 +106,10 @@ const NewProduct = ({ history }) => {
                 <Fragment>
                 <div className="wrapper my-5"> 
         <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-            <h1 className="mb-4">New Product</h1>
+            <h1 className="mb-4">Neues Produkt</h1>
 
             <div className="form-group">
-              <label HtmlFor="name_field">Name</label>
+              <label HtmlFor="name_field">Produktname</label>
               <input
                 type="text"
                 id="name_field"
@@ -120,7 +120,7 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div className="form-group">
-                <label HtmlFor="price_field">Price</label>
+                <label HtmlFor="price_field">Produktpreis (€)</label>
                 <input
                   type="text"
                   id="price_field"
@@ -131,14 +131,14 @@ const NewProduct = ({ history }) => {
               </div>
 
               <div className="form-group">
-                <label HtmlFor="description_field">Description</label>
+                <label HtmlFor="description_field">Produktbeschreibung</label>
                 <textarea className="form-control" id="description_field" rows="8" 
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}></textarea>
               </div>
 
               <div className="form-group">
-                <label HtmlFor="category_field">Category</label>
+                <label HtmlFor="category_field">Produktkategorie</label>
                 <select className="form-control" id="category_field"
                 value={category} 
                 onChange={(e) => setCategory(e.target.value)}>
@@ -150,7 +150,7 @@ const NewProduct = ({ history }) => {
                   </select>
               </div>
               <div className="form-group">
-                <label HtmlFor="stock_field">Stock</label>
+                <label HtmlFor="stock_field">Anzahl auf Lager</label>
                 <input
                   type="number"
                   id="stock_field"
@@ -161,7 +161,7 @@ const NewProduct = ({ history }) => {
               </div>
 
               <div className="form-group">
-                <label HtmlFor="seller_field">Seller Name</label>
+                <label HtmlFor="seller_field">Verkäufername</label>
                 <input
                   type="text"
                   id="seller_field"
@@ -184,7 +184,7 @@ const NewProduct = ({ history }) => {
                             multiple
                         />
                         <label className='custom-file-label' HtmlFor='customFile'>
-                            Choose Images
+                            Bild(er) auswählen
                         </label>
                     </div>
                     {imagesPreview.map(img => (
@@ -200,7 +200,7 @@ const NewProduct = ({ history }) => {
               className="btn btn-block py-3"
               disabled={loading ? true : false}
             >
-              CREATE
+              Produkt anlegen
             </button>
 
           </form>
