@@ -1,0 +1,169 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+.feature-section, .artist-slider, .halloween-program {
+    .artist-item {
+        .artist-inner {
+            @include transition($transition);
+            border-color: $theme-color2;
+            &:hover {
+                border-color: $btn-color;
+            }
+        }
+    }
+}
+
+.halloween-ticket {
+    .ticket-area {
+        background: $theme-color2;
+        @include breakpoint(lg) {
+            background: url(../../assets/images/ticket/bg2.png) no-repeat;
+        }
+        .ticket-left {
+            &::after {
+                display: none;
+            }
+            .ticket-thumb {
+            }
+            .ticket-content {
+                .ticket-subtitle {
+                    @extend %mb-15;
+                }
+                .ticket-countdown {
+                    li {
+                        h2, p {
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+        }
+        .ticket-sleep {
+            @include breakpoint(max-lg) {
+                text-align: center;
+                @include breakpoint(md) {
+                    margin-top: 30px;
+                }
+            }
+            h3, p {
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.halloween-pricing {
+    .pricing-item {
+        .pricing-inner {
+            background: transparent;
+            border: 8px solid $theme-color2;
+            &:hover, &.active {
+                border-color: $btn-color;
+                .pricing-content {
+                    .pricing-title, .pricing-price  {
+                        color: $white-color;
+                    }
+                    .lab-btn {
+                        background: $btn-color;
+                        span {
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+            .pricing-content {
+                .pricing-title, .pricing-price, .pricing-list li {
+                    color: $white-color;
+                }
+                .pricing-price {
+                    @extend %mb-30;
+                }
+                .lab-btn {
+                    background: $theme-color2;
+                    span {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.halloween-newslater {
+    background: #0a0c22;
+    form {
+        max-width: 670px;
+        margin: 0 auto;
+        @extend %rel;
+        input {
+            background: $theme-color2;
+            &::-webkit-input-placeholder {
+                color: $white-color;
+            }
+        }
+        button {
+            background: $btn-color;
+        }
+        @include breakpoint (max-sm) {
+            button {
+                width: 100%;
+                position: relative;
+            }
+            input {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+
+.halloween-footer {
+    padding: 120px 0;
+    .section-wrapper {
+        .footer-social {
+        }
+        .footer-copyright {
+            @include transform(translateY(70px));
+            p {
+                a {
+                    &:hover {
+                        // color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.map-section {
+    iframe {
+        height: 400px;
+        border: none;
+        @extend %w-100;
+        @extend %d-block;
+    }
+}
+
+.shop-page {
+    // background: $body-color;
+    .section-wrapper {
+        .product-item {
+            background: $white-color;
+            border-color: $white-color;
+            &:hover {
+                .product-content {
+                    h5 a {
+                        color: $theme-color;
+                    }
+                }
+            }
+            .product-content {
+                h5 a,h6,p i {
+                    color: $title-color;
+                }
+            }
+        }
+    }
+}

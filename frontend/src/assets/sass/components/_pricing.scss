@@ -1,0 +1,44 @@
+.pricing-item {
+    .pricing-inner {
+        box-shadow: 0 0 10px rgba($shadow-color, $alpha: .1);
+        padding: 40px 30px;
+        background: $white-color;
+        @include transition($transition);
+        &:hover, &.active {
+            background: $theme-color;
+            .pricing-content {
+                .pricing-title, .pricing-price  {
+                    color: $white-color;
+                }
+                .lab-btn {
+                    background: $white-color;
+                    span {
+                        color: $theme-color;
+                    }
+                }
+                .pricing-list {
+                    li {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+        .pricing-thumb {
+            @extend %mb-30;
+            img {}
+        }
+        .pricing-content {
+            .pricing-title {}
+            .pricing-price {
+                @extend %mb-30;
+            }
+            .lab-btn {}
+            .pricing-list {
+                @extend %mt-30;
+                li {
+                    @extend %py-5;
+                }
+            }
+        }
+    }
+}

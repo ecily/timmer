@@ -1,0 +1,55 @@
+.artist-section {
+    @extend %hidden;
+    .shape-bottom-right {
+        margin-bottom: -50px;
+    }
+}
+
+.artist-item {
+    .artist-inner {
+        @extend %rel;
+        border: 8px solid $white-color;
+        &::after {
+            @extend %abs;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($title-color, $alpha: .5);
+            transform-origin: bottom;
+            @include transition($transition);
+            @include transform(scaleY(0));
+        }
+        &:hover {
+            &::after {
+                @include transform(scaleY(1));
+            }
+            .artist-thumb {
+                img {
+                    @include transform(scale(1.2));
+                }
+            }
+            .artist-content {
+                @include transform(translateX(-50%) scale(1));
+            }
+        }
+        .artist-thumb {
+            @extend %hidden;
+            img {
+                @extend %w-100;
+            }
+        }
+        .artist-content {
+            @extend %abs;
+            bottom: 30px;
+            left: 50%;
+            width: 100%;
+            z-index: 1;
+            @include transition($transition);
+            @include transform(translateX(-50%) scale(0));
+            .artist-name {
+                @extend %mb-10;
+            }
+        }
+    }
+}

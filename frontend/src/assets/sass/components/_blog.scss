@@ -1,0 +1,682 @@
+.blog-section {
+	background-color: $ash-color;
+	@extend %hidden;
+	@extend %rel;
+	&.style-main-section {
+		.section-wrapper {
+			.post-item {
+                .post-item-inner {
+                    background-color: $white-color;
+                    .post-thumb {
+                        @extend %rel;
+                        @extend %link-image;
+                        video {
+                            width: 100%;
+                        }
+                        .blog-slider {
+                            a {
+                                img {
+                                    @include transform(scale(1));
+                                }
+                            }
+                        }
+						blockquote {
+							background-color: $theme-color;
+							padding: 50px 30px;
+							text-align: center;
+							font-size: 18px;
+							font-weight: 500;
+							font-style: italic;
+							color: $white-color;
+							.quote-thumb {
+								margin-bottom: 20px;
+							}
+						}
+                        .blog-navigation {
+                            @extend %abs;
+                            width: calc(100% - 80px);
+                            top: 50%;
+                            left: 40px;
+                            @include transform(translateY(-50%));
+                            @include transition(all ease .6s);
+                            z-index: 1;
+                            opacity: 0;
+                            a {
+                                &.blog-navigation-next,
+                                &.blog-navigation-prev {
+                                    width: 50px;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    background-color: #fff;
+                                    text-align: center;
+                                    @extend %rel;
+                                    outline: none;
+                                    z-index: 1;
+                                    @include border-radius(50%);
+                                    @extend %pointer;
+                                    color: $title-color;
+                                    &.active-icon, &:hover {
+                                        color: $white-color;
+                                        background: $theme-color;
+                                    }
+                                }
+                            }
+                        }
+                        .btn-group {
+                            @extend %abs;
+                            top: 50%;
+                            left: 50%;
+                            @include transform(translate(-50%, -50%));
+                            @include transition(all ease .6s);
+                            width: 50px;
+                            height: 50px;
+                            opacity: 0;
+                            visibility: hidden;
+                            .play,
+                            .pause {
+                                @extend %abs;
+                                width: 100%;
+                                height: 100%;
+                                font-size: 20px;
+                                background-color: #fff;
+                                @include border-radius(50%);
+                                text-align: center;
+                                line-height: 50px;
+                                top: 0;
+                                left: 0;
+                                color : #ff4600;
+                                @extend %pointer;
+                            }
+                            .play {
+                                &.show {
+                                    opacity: 0;
+                                }
+                            }
+                            .pause {
+                                &.show {
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                        &:hover {
+                            .btn-group {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                            .blog-navigation {
+                                width: calc(100% - 100px);
+                                left: 50px;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .post-content {
+                        padding: 23px 0 30px;
+                        .meta-post {
+                            width: 100%;
+                            @include breakpoint (sm) {
+                                width: calc(60px);
+                                text-align: center;
+                                li {
+                                    p {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            li {
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 15px 0;
+                                border-right: 1px solid #ebebeb;
+                                border-bottom: 1px solid #ebebeb;
+                                &:last-child {
+                                    border-bottom: none;
+                                    padding-bottom: 0;
+                                }
+                                @extend %rel;
+                                p {
+                                    margin: 0;
+                                }
+                                ul {
+                                    @extend %abs;
+                                    width: 100%;
+                                    top: 100%;
+                                    left: 0;
+                                    @include transform(scaleY(0));
+                                    transform-origin: top;
+                                    @include transition($transition);
+                                    z-index: 1;
+                                    li {
+                                        padding: 0;
+                                        border-bottom: 1px solid $white-color;
+                                        a {
+                                            color: $white-color;
+                                            display: block;
+                                            width: 100%;
+                                            padding: 10px;
+                                            background-color: $theme-color;
+                                            &.facebook {
+                                                background-color: $facebook;
+                                            }
+                                            &.twitter {
+                                                background-color: $twitter;
+                                            }
+                                            &.linkedin {
+                                                background-color: $linkedin;
+                                            }
+                                            &.google {
+                                                background-color: $google;
+                                            }
+                                        }
+                                    }
+                                }
+                                &:hover {
+                                    ul {
+                                        transform: scaleY(1);
+                                    }
+                                }
+                            }
+                        }
+                        .content-part {
+                            width: 100%;
+                            padding: 10px;
+                            @include breakpoint (sm) {
+                                width: calc(100% - 60px);
+                                padding: 0 15px 0 30px;
+                            }
+                            h4 {
+                                margin-bottom: 6px;
+                                a {
+                                    color: $title-color;
+                                    @extend %text-clamp-1;
+                                }
+                            }
+                            .entry-header {
+                                .entry-meta {
+                                    margin-bottom: 10px;
+                                    p {
+                                        margin: 0;
+                                        margin-right: 20px;
+                                        &:last-child {
+                                            margin-right: 0;
+                                        }
+                                    }
+                                    a {
+                                        color: $theme-color;
+                                    }
+                                }
+                            }
+                            .entry-content {
+                                p {
+                                    margin-bottom: 20px;
+                                }
+                                .custom-btn {
+                                    padding: 7px 31px;
+                                }
+                            }
+                        }
+                    }
+                    &.active,
+                    &:hover {
+                        .post-thumb {}
+                        .post-content {
+                            .entry-header {
+                                h4 {
+                                    a {
+                                        color: $theme-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                @include breakpoint(max-sm) {
+                    .post-item-inner {
+                        .post-content {
+                            padding: 20px 15px;
+                            .meta-post {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+		}
+		&.blog-single {
+			.section-wrapper {
+				article {
+					.post-item {
+						.post-item-inner {
+							border-bottom: 1px solid #ebebeb;
+							margin-bottom: 0;
+							.post-content {
+								
+								.entry-content {
+									p {
+										margin-bottom: 25px;
+										color: #696969;
+									}
+									blockquote {
+										background-color: $theme-color;
+										padding: 25px;
+										font-style: italic;
+										font-weight: 700;
+										margin-bottom: 25px;
+										.post-thumb {
+											width: 40px;
+											padding: 7px 0;
+											@include breakpoint(max-sm) {
+												display: none;
+											}
+										}
+										p {
+											margin: 0;
+											width: calc(100%);
+											color: $white-color;
+											@include breakpoint(sm) {
+												width: calc(100% - 40px);
+												padding-left: 20px;
+											}
+										}
+									}
+								}
+							}
+							.post-thumb {
+								img {
+									width: 100%;
+								}
+							}
+						}
+					}
+					.single-tags {
+						padding: 25px ;
+						// margin: 0 15px;
+						background-color: $white-color;
+						margin-bottom: 40px;
+						.tags {
+							width: 100%;
+							margin-bottom: 15px;
+							@include breakpoint(md) {
+								width: calc(100% - 205px);
+								margin-bottom: 0;
+							}
+							ul {
+								width: calc(100% - 40px);
+								padding-left: 20px;
+								li {
+									padding: 5px;
+									&:last-child {
+										padding-right: 0;
+									}
+									&:first-child {
+										padding-left: 0;
+									}
+									a {
+										font-size: 14px;
+										padding: 8px 20px;
+										border: 1px solid #ebebeb;
+										color: $title-color;
+										&.active ,
+										&:hover {
+											background-color: $theme-color;
+											color: $white-color;
+											border-color: $theme-color;
+										}
+									}
+								}
+							}
+							.tags-indicator {
+								width: 40px;
+								height: 40px;
+								background-color: $theme-color;
+								@extend %rel;
+								&:after {
+									@extend %abs;
+									width: 15px;
+									height: 15px;
+									background-color: $theme-color;
+									@include transform(rotate(45deg)translate(-80%, 20%));
+									left: 100%;
+									top: 50%;
+								}
+								img {
+									z-index: 1;
+								}
+							}
+						}
+						ul {
+							&.social-media-icon {
+								width: 100%;
+								@include breakpoint (md) {
+									width: 200px;
+									padding-left: 20px;
+								}
+							}
+						}
+					}
+					@extend %header-effects;//It Extended In _about.scss
+					margin-bottom: 0 !important;
+					.comment-header {
+						padding: 0 25px;
+						margin-bottom: 60px;
+					}
+					.comment-section {
+						background-color: $white-color;
+						margin: 0 0 40px;
+						padding: 25px 0;
+						ul {
+							li {
+								padding: 0;
+								.post-item {
+									display: flex;
+									flex-wrap: wrap;
+									justify-content: center;
+									padding: 25px 25px 20px;
+									border-bottom: 1px solid #ebebeb;
+									&:first-child {
+										padding-top: 0;
+									}
+									.post-thumb {
+										width: 80px;
+										height: 80px;
+										margin: 0 auto;
+										@include border-radius(50%);
+										@extend %hidden;
+										@extend %link-image;
+										@include breakpoint(max-sm) {
+											margin: 0 auto 15px 0;
+										}
+									}
+									.post-content {
+										width: 100%;
+										@include breakpoint(sm) {
+											width: calc(100% - 80px);
+											padding-left: 20px;
+										}
+										h6 {
+											font-size: 16px;
+											text-transform: uppercase;
+											span {
+												a {
+													font-size: 14px;
+													color: $theme-color;
+													i {
+														margin-right: 5px;
+													}
+												}
+											}
+										}
+										p {
+											margin: 0;
+										}
+									}
+								}
+								ul {
+									padding-left: 25px;
+									li {
+										.post-item {
+											border: none;
+										}
+										&:first-child {
+											.post-item {
+												padding-top: 25px;
+											}
+										}
+										&:last-child {
+											.post-item {
+												padding-bottom: 0;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					.leave-comment {
+						margin: 0;
+						padding : 25px;
+						background-color: $white-color;
+						.comment-header {
+							padding: 0;
+						}
+						.comment-form {
+							input,
+							textarea {
+								background-color: $ash-color;
+								margin-bottom: 30px;
+							}
+							input {
+								width: 48%;
+								height: 50px;
+								padding-left: 20px;
+							}
+							textarea {
+								padding: 20px;
+							}
+							input[type=submit] {
+								@extend %pointer;
+								width: 175px;
+								background-color: $theme-color;
+								font-weight: 700;
+								color: $white-color;
+								text-transform: capitalize;
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+aside {
+	.widget {
+		padding: 25px;
+		background-color: $white-color;
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		.widget-header {
+			@extend %header-effects;//It Extended In _about.scss
+		}
+		&.widget-search {
+			.search-wrapper {
+				@extend %rel;
+				input {
+					background-color: $ash-color;
+					height: 50px;
+					padding-left: 10px;
+					line-height: 50px;
+				}
+				button {
+					padding: 0;
+					@extend %abs;
+					top: 0;
+					right: 0;
+					line-height: 50px;
+					width: 50px;
+					height: 50px;
+					@extend %pointer;
+					outline: none;
+					@extend %border-none;
+					background-color: $ash-color;
+				}
+			}
+		}
+		&.widget-archive,
+		&.widget-category {
+			.widget-wrapper {
+				margin-top: -5px;
+				li {
+					border-bottom: 1px solid #ebebeb;
+					&:first-child {
+						padding-top: 0;
+						a {
+							padding-top: 0;
+						}
+					}
+					&:last-child {
+						border: none;
+						padding-bottom: 0;
+						a {
+							padding-bottom: 0;
+						}
+					}
+					a {
+						color: $title-color;
+						padding: 13px 0;
+						i {
+							margin-right: 5px;
+							color: $title-color;
+							@include transition($transition);
+						}
+						&.active,
+						&:hover {
+							padding-left: 10px;
+							color: $theme-color;
+							i {
+								color: $theme-color;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.widget-post {
+			ul {
+				&.widget-wrapper {
+					margin-top: -5px;
+					li {
+						border-bottom: 1px solid #ebebeb;
+						padding: 20px 0;
+						&:first-child {
+							padding-top: 0;
+						}
+						&:last-child {
+							border-bottom: 1px solid transparent;
+							padding-bottom: 5px;
+						}
+						&:hover {
+							.post-thumb {
+								img {
+									@include transform(scale(1.1));
+								}
+							}
+							.post-content {
+								h6 {
+									a {
+										color: $theme-color;
+									}
+								}
+							}
+						}
+						.post-thumb {
+							width: 90px;
+							@extend %link-image;
+						}
+						.post-content {
+							width: calc(100%  - 90px);
+							padding-right: 20px;
+							h6 {
+								a {
+									font-size: 16px;
+									color: $title-color;
+									@include transition($transition);
+									@extend %text-clamp-2;
+									@extend %mb-0;
+								}
+							}
+							p {
+								@extend %mb-10;
+								i {
+									color: $theme-color;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.widget-instagram {
+			ul {
+				&.widget-wrapper {
+					margin: -6.5px;
+					li {
+						width: 33.33%;
+						padding: 6.5px;
+						@extend %link-image;
+						a {
+							@extend %hidden;
+							&:hover {
+								img {
+									@include transform(scale(1.1));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.widget-tags {
+			ul {
+				&.widget-wrapper {
+					margin: -5px;
+					li {
+						padding: 5px;
+						a {
+							padding: 2px 10px;
+							color: $title-color;
+							border: 1px solid #ebebeb;
+							border-radius: 1px;
+							@include breakpoint(max-sm) {
+								font-size: 14px;
+							}
+							&.active ,
+							&:hover {
+								background-color: $theme-color;
+								color: $white-color;
+								border-color: $theme-color;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.lab-pagination {
+	li {
+		padding: 0;
+		a {
+			width: 46px;
+			height: 46px;
+			line-height: 46px;
+			text-align: center;
+			color: $theme-color;
+			background-color: $white-color;
+			@include border-radius(50%);
+			margin-right: 10px;
+			border: 1px solid #ebebeb;
+			&.active {
+				background-color: $theme-color;
+				color: $white-color;
+				border-color: $theme-color;
+			}
+			&:hover {
+				border-color: $theme-color;
+				background: $theme-color;
+				color: $white-color;
+			}
+		}
+		&:last-child {
+			a {
+				margin: 0;
+			}
+		}
+	}
+}

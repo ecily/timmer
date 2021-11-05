@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.lab-btn {
+    display: inline-block;
+    padding: 16px 25px;
+    background-position: left center;
+    box-shadow: 0 5px 5px rgba($title-color, $alpha: .2);
+    background: $btn-color;
+    @include transition($transition);
+    @include border-radius(4px);
+    @extend %rel;
+    @extend %hidden;
+    span {
+        z-index: 1;
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        color: $white-color;
+        text-transform: capitalize;
+    }
+    &:hover {
+        @include transform(translateY(-2px));
+        box-shadow: none;
+    }
+    &.style-2 {
+        box-shadow: 0 5px 5px rgba($title-color, $alpha: .2);
+        background: $white-color;
+        span {
+            @extend %theme-color;
+        }
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}

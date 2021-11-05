@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer-section {
+    padding: 200px 0;
+    .section-wrapper {
+        z-index: 1;
+        @extend %rel;
+        .footer-social {
+            @extend %my-30;
+            .social-media {
+                a {
+                    @extend %m-5;
+                }
+            }
+        }
+        .footer-copyright {
+            p {
+                a {
+                    &:hover {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
