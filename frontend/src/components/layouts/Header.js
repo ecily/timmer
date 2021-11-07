@@ -5,7 +5,9 @@ import { useAlert } from 'react-alert'
 import { logout } from '../../actions/userActions'
 
 import Search from './Search'
+
 import '../../App.css'
+import '../../assets/css/style.css'
 
 const Header = () => {
     const alert = useAlert();
@@ -21,7 +23,8 @@ const Header = () => {
 
     return (
         <Fragment>
-            <nav className="navbar row">
+            <header>
+            <nav className="navbar row header-one">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
                         <Link to="/" style={{ textDecoration: 'none' }} className='text-white'>
@@ -30,9 +33,9 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className="col-12 col-md-6 mt-2 mt-md-0">
+                {/* <div className="col-12 col-md-6 mt-2 mt-md-0">
                     <Route render={({ history }) => <Search history={history} />} />
-                </div>
+                </div> */}
 
                 <div className="col-12 col-md-2 mt-4 mt-md-0 text-center">
                     <Link to="/cart" style={{ textDecoration: 'none' }} >
@@ -70,6 +73,7 @@ const Header = () => {
 
                 </div>
             </nav>
+            </header>
         </Fragment>
     )
 }

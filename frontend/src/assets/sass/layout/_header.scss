@@ -1,0 +1,456 @@
+/*================*** Header Section Start Here     ***===================*/
+header {
+	// background-color: #1ba1d2;
+	// min-height: 70px;
+	// &.header-two {
+	// 	min-height: 80px; 
+	// 	@include breakpoint (xl) {
+	// 		min-height: 130px;
+	// 	}
+	// }
+	// @include breakpoint (lg) {
+	// 	min-height: 100px;
+	// }
+	&.header-fixed {
+		.header-one {
+			background: $theme-color;
+			box-shadow: 0 0 10px rgba($title-color, $alpha: .1);
+			
+		}
+		.header-style-two {
+			@include breakpoint(lg) { 
+				top: 50px; 
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 9999;
+				background-color: $white-color;
+				box-shadow: 0 0 10px rgba($title-color, $alpha: .1);
+				@include transition($transition);
+			}
+		}
+	}
+	.header-one {
+		@include transition($transition);
+		width: 100%;
+		position: fixed;
+		z-index: 9;
+		@include breakpoint(max-lg) {
+			background: $theme-color;
+		}
+		&.header-fixed {
+			position:relative;
+		}
+		&.header-style-two {
+			@include breakpoint(lg) { top: 50px; background-color: transparent; }
+			&.header-bg-white {
+				background-color: $white-color;
+				box-shadow: 0px 0px 3px 0px rgba(0,0,0,.1);
+			}
+		}
+	}
+	
+	.header-style-two {
+		// top: 0 ;
+		.section-wrapper .menu-wrapper ul.main-menu>li:hover a {
+			@include breakpoint(lg) {
+				color: $title-color;
+			}
+		}
+		.section-wrapper .menu-wrapper ul.menu-button li a i {
+			@include breakpoint(lg) {
+				color: $btn-color;
+			}
+		}
+		.header-bar span {
+			background: $btn-color;
+		}
+		@include breakpoint (max-lg) {
+			background-color: $white-color;
+		}
+		&.header-bg-white {
+			background-color: $white-color;
+			animation-name: slideInUp;
+		}
+		.section-wrapper {
+			padding: 0;
+			position: relative;
+			z-index: 1;
+			.menu-wrapper {
+				ul {
+					&.main-menu {
+						li {
+							a {
+								color: $title-color;
+								&:hover, &.active {
+									color: $theme-color;
+								}
+							}
+							ul {
+								top: calc(100% + 10px);
+							}
+						}
+					}
+					&.menu-button {
+						li {
+							.cart-items {
+								top: 100%;
+								@include breakpoint(max-sm) {
+									left: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.header-top {
+			p {
+				width: 50%;
+				line-height: 50px;
+				color: $white-color;
+				font-style: italic;
+				&:last-child {
+					text-align: right;
+				}
+				a {
+					color: $white-color;
+					font-weight: 600;
+				}
+			}
+		}
+		.section-wrapper { 
+			min-height: 80px;
+			background-color: $white-color;
+			padding-left: 10px; 
+		} 
+	}
+	.section-wrapper {
+		min-height: 70px;
+		@include breakpoint (lg) {
+			min-height: 100px;
+			@include breakpoint(max-xl) {
+				justify-content: center !important;
+				.logo {
+					padding-top: 10px;
+				}
+				.menu-wrapper {
+					width: 100%;
+					justify-content: center !important;
+					padding-bottom: 10px;
+				}
+			}
+		}
+		@include breakpoint (max-lg) {
+			position: relative;
+		}
+		.menu-wrapper {
+			@include breakpoint(max-lg) {
+				position: absolute;
+				top: 100%;
+				width: 100%;
+				left: 0;
+				background: $white-color;
+				padding: 15px;
+				transform: scaleY(0);
+				transform-origin: top;
+				transition: all .3s ease;
+				overflow-y: auto;
+				height: 300px;
+				&.show {
+					transform: scaleY(1);
+				}
+			}
+			ul {
+				&.main-menu >{
+					li {
+						padding: 0;
+						margin: 0 5px;
+						@extend %rel;
+						width: 100%;
+						border-bottom: 1px solid $border-color;
+						@include breakpoint(lg) {
+							width: auto;
+							border-bottom: none;
+						}
+						&:last-child {
+							border: none;
+						}
+						ul {
+							left: 0;
+							top: calc(100%);
+							min-width: 190px;
+							@include transition(all ease .3s);
+							@include breakpoint(lg) {
+								position: absolute;
+								opacity: 0;
+								visibility : hidden;
+								z-index: 99999;
+							}
+							@include breakpoint(max-lg) {
+								display: none;
+							}
+							li {
+								border-bottom: 1px solid $border-color;
+								padding: 0;
+								@extend %rel;
+								ul {
+									right: 100%;
+									top: 0;
+								}
+								a {
+									padding: 13px 0;
+									padding-left: 25px;
+									background-color: $white-color;	
+									display: block;
+									@include breakpoint(max-lg) {
+										display: block;
+									}
+									&:hover {
+										padding-left: 20px;
+									}
+								}
+								&:last-child {
+									border: none;
+								}
+							}
+						}
+						a {
+							padding: 10px;
+							color: $white-color;
+							font-weight: 700;
+							text-transform: capitalize;
+							@include breakpoint(max-lg) {
+								color: $title-color;
+								display: block;
+							}
+							&.active {
+								color: $theme-color;
+								@include breakpoint(lg) {
+									color: $white-color;
+								}
+							}
+						}
+						&:hover {
+							a {
+								color: $theme-color;
+								@include breakpoint(lg) {
+									color: $white-color;
+								}
+							}
+							 ul {
+								visibility: visible;
+								opacity: 1;
+								box-shadow: 0px 5px 10px 0px rgba(0,0,0,.1);
+								li {
+									a {
+										color: $black-color;
+										&.active,
+										&:hover {
+											color: $white-color;
+											background-color: $theme-color;
+											padding-left: 30px;
+										}
+									}
+									ul {
+										left: 100%;
+										visibility: hidden;
+										opacity: 0;
+									}
+									&:hover {
+										> ul {
+											opacity: 1;
+											visibility: visible;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				&.menu-button {
+					li {
+						padding: 0;
+						@extend %rel;
+						&.cart-icon {
+							width: 80px;
+							height: 80px;
+							background-color: $theme-color;
+							a {
+								&.cart-button {
+									width: 60px;
+									height: 60px;
+									padding: 0;
+									@include border-radius(50%);
+									background-color: $white-color;
+								}
+							}
+						}
+						a {
+							// padding: 10px;
+							// padding-right: 20px;
+							display: block;
+							sup {
+								min-width: 15px;
+								min-height: 15px;
+								display: inline-block;
+								line-height: 15px;
+								color: $white-color;
+								text-align: center;
+								border-radius: 50%;
+								top: -0.8rem;
+								left: -0.7rem;
+								background-color: #ff4600;
+							}
+							i {
+								color: $theme-color;
+								@include font-size($fs-h3);
+								@include breakpoint(lg) {
+									color: $white-color;
+								}
+							}
+							// &.custom-btn { padding: 10px 30px; }
+						}
+						.cart-items {
+							@include transition ($transition);
+							@extend %abs;
+							top: calc(100% + 25px);
+							right: 0;
+							min-width: 320px;
+							height: auto;
+							background-color: $ash-color;
+							opacity: 0;
+							visibility: hidden;
+							ul {
+								z-index: 9999;
+								@extend %rel;
+								li {
+									padding-bottom: 10px;
+									margin-bottom: 10px;
+									border-bottom: 1px solid #ebebeb;
+									.post-thumb {
+										width: 85px;
+										@extend %hidden;
+										@extend %link-image;
+										a {
+											padding: 0;
+										}
+									}
+									.post-content {
+										padding-left: 15px;
+										width: calc(100% - 85px);
+										@extend %rel;
+										.remove-item {
+											@extend %abs;
+											top: 0px;
+											right: 0px;
+											padding: 0px;
+											text-align: center;
+											width: 25px;
+											height: 25px;
+											line-height: 25px;
+											i {
+												color: $theme-color;
+											}
+										}
+										h6 {
+											@extend %mb-0;
+											a {
+												color: $black-color;
+												padding: 0;
+												text-transform: capitalize;
+												&:hover {
+													color: $theme-color;
+												}
+											}
+										}
+										h5 {
+											color: $black-color;
+										}
+										ul {
+											@extend %rel;
+											@extend %mb-10;
+											li {
+												margin: 0;
+												padding: 0;
+												border: none;
+												i {
+													margin-right: 5px;
+													color: $theme-color;
+													@include font-size(14px);
+												}
+											}
+										}
+									}
+									&:last-child {
+										margin: 0;
+										border: none;
+									}
+								}
+								&.button-group {
+									display: flex;
+									justify-content: space-around;
+									@extend %mt-15;
+									li {
+										padding: 0;
+										margin: 0;
+										border: none;
+										a {
+											margin: 0;
+											text-align: center;
+											display: inline-block;
+										}
+									}
+								}
+							}
+						}
+						&:hover {
+							.cart-items {
+								visibility: visible;
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.header-bar {
+		width: 30px;
+		height: 25px;
+		@extend %pointer;
+		@extend %rel;
+		span {
+			display: inline-block;
+			height: 3px;
+			width: 100%;
+			@include transition($transition);
+			background-color: $white-color;
+			@extend %abs;
+			left: 0;
+			&:nth-child(2) {
+				top: 52%;
+				transform: translateY(-65%);
+			}
+			&:first-child {
+				top : 0;
+			}
+			&:last-child {
+				bottom : 0;
+			}
+		}
+		&.show {
+			span {
+				&:first-child {
+					@include transform (rotate(45deg) translate(6px , 13px));
+				}
+				&:nth-child(2) {
+					opacity: 0;
+				}
+				&:last-child {
+					@include transform (rotate(-45deg) translate(3px , -9px));
+				}
+			}
+		}
+	}
+}

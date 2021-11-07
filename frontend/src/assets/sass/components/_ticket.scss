@@ -1,0 +1,117 @@
+.ticket-section {
+    .ticket-sleep {
+        @include breakpoint(max-lg) {
+            text-align: center;
+            @include breakpoint(md) {
+                margin-top: 30px;
+            }
+        }
+        h3, p, img {
+            @include breakpoint(lg) {
+                display: inline-block;
+                -webkit-transform: rotate(-90deg);
+                transform: rotate( -90deg);
+                -webkit-transform-origin: left;
+                transform-origin: left;
+                white-space: nowrap;
+                // color: $white-color;
+                margin: 0;
+                width: 40px;
+                bottom: 0;
+                vertical-align: bottom;
+            }
+            
+        }
+        h3, p {
+            
+            @include breakpoint(lg) {
+                margin-bottom: -70px;
+            }
+        }
+        p {}
+        img {
+            // -webkit-transform: rotate(-90deg);
+            @include breakpoint(lg) {
+                transform: rotate( 0deg);
+            }
+            &.img-1 {
+                @include breakpoint(lg) {
+                    display: none;
+                }
+            }
+            &.img-2 {
+                @include breakpoint(max-lg) {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+.ticket-area {
+    // @extend %flex;
+    // align-items: center;
+    // justify-content: space-between;
+    @extend %p-30;
+    background: $white-color;
+    @include breakpoint(lg) {
+        background: url(../../assets/images/ticket/bg.png) no-repeat;
+        background-size: 100% 100%;
+        padding: 15px 20px;
+    }
+    .ticket-left {
+        @extend %flex;
+        align-items: center;
+        @extend %rel;
+        &::after {
+            @extend %abs;
+            height: 90%;
+            top: 50%;
+            right: -15px;
+            border: 1px dashed $title-color;
+            @include transform(translateY(-50%));
+            @include breakpoint(max-lg) {
+                display: none;
+            }
+        }
+        .ticket-thumb {
+            @extend %w-100;
+            @include breakpoint(md) {
+                width: 50%;
+            }
+            img {
+                @extend %w-100;
+            }
+        }
+        .ticket-content {
+            @extend %w-100;
+            @include breakpoint(md) {
+                width: 50%;
+            }
+            @extend %p-30;
+            .ticket-subtitle {
+                @include font-size($fs-h4);
+            }
+            .ticket-title {
+                @include font-size(55px);
+                font-family: $font-family2;
+            }
+            .ticket-countdown {
+                @extend %my-20;
+                li {
+                    h2 {
+                        color: $theme-color;
+                    }
+                    p {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+            .lab-btn {}
+        }
+    }
+    .ticket-right {
+        
+    }
+    .ticket-sleep {}
+}

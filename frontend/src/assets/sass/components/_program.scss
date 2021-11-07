@@ -1,0 +1,55 @@
+.program-item {
+    .program-inner {
+        box-shadow: 0 0 10px rgba($shadow-color, $alpha: .1);
+        @include transition($transition);
+        &:hover {
+            box-shadow: 0 0 30px rgba($shadow-color, $alpha: .1);
+            // @include transform(translateY(-2px));
+            .program-thumb {
+                img {
+                    @include transform(scale(1.2));
+                }
+            }
+            .program-content {
+                .program-title {
+                    color: $theme-color;
+                }
+            }
+        }
+        .program-thumb {
+            @extend %hidden;
+            img {}
+        }
+        .program-content {
+            @extend %p-30;
+            .program-title {
+                @extend %mb-15;
+                @extend %text-clamp-1;
+            }
+            .program-list {
+                li {
+                    @extend %list-none;
+                    @extend %py-5;
+                    @extend %rel;
+                    &:last-child {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                    &::after {
+                        @extend %abs;
+                        top: 75%;
+                        left: 7px;
+                        height: 100%;
+                        width: 1px;
+                        border: 1px dashed $border-color;
+                    }
+                    i {
+                        color: $theme-color;
+                        @extend %mr-5;
+                    }
+                }
+            }
+        }
+    }
+}

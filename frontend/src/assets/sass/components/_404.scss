@@ -1,0 +1,27 @@
+
+.four-zero-four {
+	background-color: $ash-color;
+	.section-wrapper {
+		text-align: center;
+		padding: 60px 30px;
+		background-color: $white-color;
+		border: 1px solid #e5ecf6;
+		.post-item {
+			.post-thumb	{
+				max-width: 505px;
+				margin: 0 auto 30px;
+				img {
+					width: 100%;
+				}
+			}
+			.post-content {
+				h2 {
+					color: $btn-color;
+				}
+				p {
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+}

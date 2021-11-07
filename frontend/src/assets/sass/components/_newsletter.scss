@@ -1,0 +1,47 @@
+.newslater-section {
+    .newslater-title {
+        font-family: $font-family2;
+        @extend %mb-30;
+    }
+    form {
+        max-width: 670px;
+        margin: 0 auto;
+        @extend %rel;
+        input {
+            color: $white-color;
+            padding-left: 20px;
+            height: 56px;
+            background: $primary-color;
+            border: none;
+            @include border-radius(0);
+            &::-webkit-input-placeholder {
+                color: $white-color;
+            }
+        }
+        button {
+            padding: 0;
+            height: 56px;
+            width: 180px;
+            @extend %abs;
+            top: 0;
+            right: 0;
+            color: $white-color;
+            font-weight: 700;
+            background: $theme-color;
+            text-transform: capitalize;
+            font-size: 14px;
+            border: none;
+            @extend %pointer;
+        }
+        @include breakpoint (max-sm) {
+            button {
+                width: 100%;
+                position: relative;
+            }
+            input {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+

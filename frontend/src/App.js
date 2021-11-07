@@ -55,15 +55,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+       
         <Header/>
-        
+        <Route path="/" component={Home} exact />
         <div className="container container-fluid">
-
-          
-        
-          <Route path="/" component={Home} exact />
-         
-          <Route path="/search/:keyword" component={Home} />
+         <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} exact />
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
@@ -94,7 +90,7 @@ function App() {
           <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact />
           <ProtectedRoute path="/admin/reviews" isAdmin={true} component={ProductReviews} exact />
 
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </Router>
   );

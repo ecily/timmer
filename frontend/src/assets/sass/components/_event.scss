@@ -1,0 +1,62 @@
+.event-section {
+    padding: 80px 0 75px;
+    @include breakpoint(lg) {
+        padding: 200px 0;
+    }
+}
+
+.event-btn {
+    @extend %mt-30;
+}
+
+
+// 
+.event-speaker-section {
+    background: #f2f6fb;
+}
+.speaker-item {
+    @extend %link-image;
+    @extend %rel;
+    @extend %post-icon;
+    &.active ,
+    &:hover {
+        .speaker-icon {
+            li {
+                ul {
+                    opacity: 1;
+                }
+            }
+        }
+        .speaker-thumb {
+            img {
+                @include transform(scale(1.2));
+            }
+        }
+        .speaker-content {
+            @extend %pt-20;
+            h5 {
+                a {
+                    color: $btn-color;
+                }
+            }
+        }
+    }
+    .speaker-thumb {
+        @extend %hidden;
+    }
+    .speaker-content {
+        @extend %pt-20;
+        @extend %pb-10;
+        h5 {
+            @extend %mb-5;
+            a {
+                color: $title-color;
+            }
+        }
+        p {
+            color: $title-color;
+            margin: 0;
+            font-size: $fs-small;
+        }
+    }
+}
